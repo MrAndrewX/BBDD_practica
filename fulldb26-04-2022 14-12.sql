@@ -68,8 +68,8 @@ INSERT INTO `particular` (`id`, `NIF`, `fecha_nacimiento`) VALUES (13, '16750263
 INSERT INTO `particular` (`id`, `NIF`, `fecha_nacimiento`) VALUES (14, '25190326a', '2002-03-16');
 INSERT INTO `particular` (`id`, `NIF`, `fecha_nacimiento`) VALUES (15, '76662060u', '1973-06-30');
 INSERT INTO `particular` (`id`, `NIF`, `fecha_nacimiento`) VALUES (19, '05164940u', '1980-05-16');
-INSERT INTO `particular` (`id`, `NIF`, `fecha_nacimiento`) VALUES (20, '21030615a', '2009-10-01');
 
+INSERT INTO `empresa` (`id`, `CIF`, `actividad`) VALUES (20, 'F21030615', 'microships');
 
 INSERT INTO `producto` (`codigo`, `peso`, `descripcion`, `PVP`, `IVA`, `marca`, `unidad_medida`) VALUES (1, '1.77', 'Omnis natus vitae reprehenderit sequi doloremque autem voluptatem. Cupiditate quibusdam quibusdam itaque est voluptatem qui. Suscipit quo vitae sint eos a consequatur illum.', '561.8', '4', 'omnis', ' \"mm\"');
 INSERT INTO `producto` (`codigo`, `peso`, `descripcion`, `PVP`, `IVA`, `marca`, `unidad_medida`) VALUES (2, '7.65', 'Eaque occaecati voluptas eos in possimus dolor. Est veritatis est expedita dolorum. Pariatur nostrum et explicabo praesentium molestiae. Incidunt neque eos sit accusantium dolor sequi qui neque.', '308.15', '10', 'possimus', ' \"mm\"');
@@ -218,3 +218,88 @@ INSERT INTO `tarjeta_credito` (`id`, `num_tarjeta`, `CCV`, `fecha_caducidad`, `t
 
 update cliente
 SET contraseña = sha1(usuario);
+
+INSERT INTO `compra` (`fecha`, `cliente`, `direccion`, `tarjeta`) VALUES ('1978-04-06','1','1','21');
+INSERT INTO `compra_producto` (`id_compra`, `id_producto`, `cantidad`) VALUES ('1','1','3');
+
+INSERT INTO `compra` (`fecha`, `cliente`, `direccion`, `tarjeta`) VALUES ('2022-06-24','2','2','22');
+INSERT INTO `compra_producto` (`id_compra`, `id_producto`, `cantidad`) VALUES ('2','4','7');
+INSERT INTO `compra_producto` (`id_compra`, `id_producto`, `cantidad`) VALUES ('2','45','2');
+
+
+INSERT INTO `compra` (`fecha`, `cliente`, `direccion`, `tarjeta`) VALUES ('2019-05-12','3','3','23');
+INSERT INTO `compra_producto` (`id_compra`, `id_producto`, `cantidad`) VALUES ('3','4','1');
+INSERT INTO `compra_producto` (`id_compra`, `id_producto`, `cantidad`) VALUES ('3','2','1');
+INSERT INTO `compra_producto` (`id_compra`, `id_producto`, `cantidad`) VALUES ('3','7','3');
+INSERT INTO `compra_producto` (`id_compra`, `id_producto`, `cantidad`) VALUES ('3','1','2');
+
+INSERT INTO `compra` (`fecha`, `cliente`, `direccion`, `tarjeta`) VALUES ('2020-11-10','4','4','24');
+INSERT INTO `compra_producto` (`id_compra`, `id_producto`, `cantidad`) VALUES ('4','78','1');
+
+INSERT INTO `compra` (`fecha`, `cliente`, `direccion`, `tarjeta`) VALUES ('2014-03-11','5','5','25');
+INSERT INTO `compra_producto` (`id_compra`, `id_producto`, `cantidad`) VALUES ('5','66','200');
+
+INSERT INTO `compra` (`fecha`, `cliente`, `direccion`, `tarjeta`) VALUES ('2010-02-01','6','6','26');
+INSERT INTO `compra_producto` (`id_compra`, `id_producto`, `cantidad`) VALUES ('6','10','2');
+INSERT INTO `compra_producto` (`id_compra`, `id_producto`, `cantidad`) VALUES ('6','100','4');
+
+INSERT INTO `compra` (`fecha`, `cliente`, `direccion`, `tarjeta`) VALUES ('2000-12-15','7','7','27');
+INSERT INTO `compra_producto` (`id_compra`, `id_producto`, `cantidad`) VALUES ('7','103','2');
+INSERT INTO `compra_producto` (`id_compra`, `id_producto`, `cantidad`) VALUES ('7','10','4');
+INSERT INTO `compra_producto` (`id_compra`, `id_producto`, `cantidad`) VALUES ('7','22','1');
+INSERT INTO `compra_producto` (`id_compra`, `id_producto`, `cantidad`) VALUES ('7','54','5');
+INSERT INTO `compra_producto` (`id_compra`, `id_producto`, `cantidad`) VALUES ('7','34','15');
+
+INSERT INTO `compra` (`fecha`, `cliente`, `direccion`, `tarjeta`) VALUES ('2008-09-12','8','8','28');
+INSERT INTO `compra_producto` (`id_compra`, `id_producto`, `cantidad`) VALUES ('8','99','4');
+INSERT INTO `compra_producto` (`id_compra`, `id_producto`, `cantidad`) VALUES ('8','13','23');
+INSERT INTO `compra_producto` (`id_compra`, `id_producto`, `cantidad`) VALUES ('8','10','1');
+INSERT INTO `compra_producto` (`id_compra`, `id_producto`, `cantidad`) VALUES ('8','11','51');
+INSERT INTO `compra_producto` (`id_compra`, `id_producto`, `cantidad`) VALUES ('8','12','1');
+
+INSERT INTO `compra` (`fecha`, `cliente`, `direccion`, `tarjeta`) VALUES ('2008-10-30','9','8','29');
+INSERT INTO `compra_producto` (`id_compra`, `id_producto`, `cantidad`) VALUES ('9','55','4');
+INSERT INTO `compra_producto` (`id_compra`, `id_producto`, `cantidad`) VALUES ('9','17','11');
+
+INSERT INTO `compra` (`fecha`, `cliente`, `direccion`, `tarjeta`) VALUES ('2022-01-01','10','10','30');
+INSERT INTO `compra_producto` (`id_compra`, `id_producto`, `cantidad`) VALUES ('10','5','18');
+
+INSERT INTO `compra` (`fecha`, `cliente`, `direccion`, `tarjeta`) VALUES ('2022-04-13','11','11','31');
+INSERT INTO `compra_producto` (`id_compra`, `id_producto`, `cantidad`) VALUES ('11','110','11');
+
+
+INSERT INTO `compra` (`fecha`, `cliente`, `direccion`, `tarjeta`) VALUES ('2022-11-11','12','12','32');
+INSERT INTO `compra_producto` (`id_compra`, `id_producto`, `cantidad`) VALUES ('12','11','8');
+INSERT INTO `compra_producto` (`id_compra`, `id_producto`, `cantidad`) VALUES ('12','84','1');
+
+
+INSERT INTO `compra` (`fecha`, `cliente`, `direccion`, `tarjeta`) VALUES ('2002-04-11','13','13','33');
+INSERT INTO `compra_producto` (`id_compra`, `id_producto`, `cantidad`) VALUES ('13','24','3');
+
+
+INSERT INTO `compra` (`fecha`, `cliente`, `direccion`, `tarjeta`) VALUES ('2005-02-27','14','14','34');
+INSERT INTO `compra_producto` (`id_compra`, `id_producto`, `cantidad`) VALUES ('14','77','1');
+
+
+INSERT INTO `compra` (`fecha`, `cliente`, `direccion`, `tarjeta`) VALUES ('2001-01-04','15','15','29');
+INSERT INTO `compra_producto` (`id_compra`, `id_producto`, `cantidad`) VALUES ('15','45','2');
+
+
+INSERT INTO `compra` (`fecha`, `cliente`, `direccion`, `tarjeta`) VALUES ('2012-01-11','16','16','31');
+INSERT INTO `compra_producto` (`id_compra`, `id_producto`, `cantidad`) VALUES ('16','12','2');
+
+
+INSERT INTO `compra` (`fecha`, `cliente`, `direccion`, `tarjeta`) VALUES ('2012-01-11','17','17','22');
+INSERT INTO `compra_producto` (`id_compra`, `id_producto`, `cantidad`) VALUES ('17','78','3');
+
+
+INSERT INTO `compra` (`fecha`, `cliente`, `direccion`, `tarjeta`) VALUES ('2012-01-11','18','18','24');
+INSERT INTO `compra_producto` (`id_compra`, `id_producto`, `cantidad`) VALUES ('18','66','6');
+
+
+INSERT INTO `compra` (`fecha`, `cliente`, `direccion`, `tarjeta`) VALUES ('2012-01-11','19','19','25');
+INSERT INTO `compra_producto` (`id_compra`, `id_producto`, `cantidad`) VALUES ('19','91','1');
+
+
+INSERT INTO `compra` (`fecha`, `cliente`, `direccion`, `tarjeta`) VALUES ('2012-01-11','20','20','23');
+INSERT INTO `compra_producto` (`id_compra`, `id_producto`, `cantidad`) VALUES ('20','19','4');
