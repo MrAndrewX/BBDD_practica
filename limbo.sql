@@ -62,9 +62,11 @@ CREATE TABLE compra(
     fecha DATE,
     total FLOAT DEFAULT 0,
     cliente INT,
-    direccion INT, 
+    direccion INT,
+    tarjeta INT, 
     FOREIGN KEY (cliente) REFERENCES cliente(id),
-    FOREIGN KEY (direccion) REFERENCES direccion(id)
+    FOREIGN KEY (direccion) REFERENCES direccion(id),
+    FOREIGN KEY (tarjeta) REFERENCES tarjeta_credito(id)
 );
 CREATE TABLE producto(
     codigo INT AUTO_INCREMENT PRIMARY KEY,
@@ -78,13 +80,7 @@ CREATE TABLE producto(
 );
 
 
-CREATE TABLE compra_tarjeta(
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    id_compra INT,
-    id_tarjeta INT,
-    FOREIGN KEY (id_compra) REFERENCES compra(id),
-    FOREIGN KEY (id_tarjeta) REFERENCES tarjeta_credito(id)
-);
+
 
 CREATE TABLE compra_producto(
     id INT AUTO_INCREMENT PRIMARY KEY,
