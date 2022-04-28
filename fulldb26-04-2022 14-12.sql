@@ -32,6 +32,7 @@ INSERT INTO `cliente` (`id`, `nombre`, `usuario`, `contraseña`, `correo`) VALUE
 INSERT INTO `cliente` (`id`, `nombre`, `usuario`, `contraseña`, `correo`) VALUES (18, 'Isaiah', 'preston01', '', 'cremin.merle@hotmail.com');
 INSERT INTO `cliente` (`id`, `nombre`, `usuario`, `contraseña`, `correo`) VALUES (19, 'Iliana', 'uhane', '', 'romaguera.agustina@yahoo.com');
 INSERT INTO `cliente` (`id`, `nombre`, `usuario`, `contraseña`, `correo`) VALUES (20, 'Agnes', 'bhand', '', 'aida61@bartoletti.com');
+INSERT INTO `cliente` (`id`, `nombre`, `usuario`, `contraseña`, `correo`) VALUES (21, 'Sergi', 'Noob', '', 'capullo@xnxx.com');
 
 
 INSERT INTO `direccion` (`id`, `calle`, `numero`, `codigo_postal`, `piso`, `puerta`, `codigo_ciudad`) VALUES (1, 'Maurice Estate', '34', '27047', '6', 'b', 7);
