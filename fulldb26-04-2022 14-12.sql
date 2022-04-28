@@ -200,20 +200,20 @@ INSERT INTO `producto` (`codigo`, `peso`, `descripcion`, `PVP`, `IVA`, `marca`, 
 INSERT INTO `producto` (`codigo`, `peso`, `descripcion`, `PVP`, `IVA`, `marca`, `unidad_medida`) VALUES (127, '1.25', 'Debitis earum nostrum ut quia sint itaque. Eaque et alias sed in culpa quia quam velit. Voluptatum doloribus corrupti omnis dolorem. Rerum aut sit molestias excepturi aliquid nulla repellat.', '12.02', '21', 'officia', ' \"mm\"');
 
 
-INSERT INTO `tarjeta_credito` (`id`, `num_tarjeta`, `CCV`, `fecha_caducidad`, `tipo_tarjeta`) VALUES (21, '4556688711997400', 687, '2017-11-20', 'MasterCard');
-INSERT INTO `tarjeta_credito` (`id`, `num_tarjeta`, `CCV`, `fecha_caducidad`, `tipo_tarjeta`) VALUES (22, '6011154915740435', 995, '1993-03-03', 'MasterCard');
-INSERT INTO `tarjeta_credito` (`id`, `num_tarjeta`, `CCV`, `fecha_caducidad`, `tipo_tarjeta`) VALUES (23, '4485543461589', 820, '1989-08-28', 'MasterCard');
-INSERT INTO `tarjeta_credito` (`id`, `num_tarjeta`, `CCV`, `fecha_caducidad`, `tipo_tarjeta`) VALUES (24, '4929256781789', 723, '1979-03-22', 'Visa');
-INSERT INTO `tarjeta_credito` (`id`, `num_tarjeta`, `CCV`, `fecha_caducidad`, `tipo_tarjeta`) VALUES (25, '5354414830957827', 472, '1970-01-26', 'MasterCard');
-INSERT INTO `tarjeta_credito` (`id`, `num_tarjeta`, `CCV`, `fecha_caducidad`, `tipo_tarjeta`) VALUES (26, '5391610742796190', 251, '1989-09-08', 'MasterCard');
-INSERT INTO `tarjeta_credito` (`id`, `num_tarjeta`, `CCV`, `fecha_caducidad`, `tipo_tarjeta`) VALUES (27, '5251858336553894', 98, '2000-01-16', 'Visa');
-INSERT INTO `tarjeta_credito` (`id`, `num_tarjeta`, `CCV`, `fecha_caducidad`, `tipo_tarjeta`) VALUES (28, '4485966525962590', 556, '1981-02-13', 'Visa');
-INSERT INTO `tarjeta_credito` (`id`, `num_tarjeta`, `CCV`, `fecha_caducidad`, `tipo_tarjeta`) VALUES (29, '5118862944321225', 158, '2003-02-12', 'Visa');
-INSERT INTO `tarjeta_credito` (`id`, `num_tarjeta`, `CCV`, `fecha_caducidad`, `tipo_tarjeta`) VALUES (30, '4556044694971', 220, '2001-11-01', 'Visa');
-INSERT INTO `tarjeta_credito` (`id`, `num_tarjeta`, `CCV`, `fecha_caducidad`, `tipo_tarjeta`) VALUES (31, '5580132717106603', 296, '1979-06-18', 'Visa');
-INSERT INTO `tarjeta_credito` (`id`, `num_tarjeta`, `CCV`, `fecha_caducidad`, `tipo_tarjeta`) VALUES (32, '341470234115928', 438, '2017-09-06', 'MasterCard');
-INSERT INTO `tarjeta_credito` (`id`, `num_tarjeta`, `CCV`, `fecha_caducidad`, `tipo_tarjeta`) VALUES (33, '5201685492645159', 484, '2016-12-25', 'MasterCard');
-INSERT INTO `tarjeta_credito` (`id`, `num_tarjeta`, `CCV`, `fecha_caducidad`, `tipo_tarjeta`) VALUES (34, '4024007101320992', 915, '1978-04-06', 'Visa');
+INSERT INTO `tarjeta_credito` (`id`, `num_tarjeta`, `CCV`, `fecha_caducidad`, `tipo_tarjeta`,`id_cliente`) VALUES (21, '4556688711997400', 687, '2017-11-20', 'MasterCard','1');
+INSERT INTO `tarjeta_credito` (`id`, `num_tarjeta`, `CCV`, `fecha_caducidad`, `tipo_tarjeta`,`id_cliente`) VALUES (22, '6011154915740435', 995, '1993-03-03', 'MasterCard','2');
+INSERT INTO `tarjeta_credito` (`id`, `num_tarjeta`, `CCV`, `fecha_caducidad`, `tipo_tarjeta`,`id_cliente`) VALUES (23, '4485543461589', 820, '1989-08-28', 'MasterCard','3');
+INSERT INTO `tarjeta_credito` (`id`, `num_tarjeta`, `CCV`, `fecha_caducidad`, `tipo_tarjeta`,`id_cliente`) VALUES (24, '4929256781789', 723, '1979-03-22', 'Visa','4');
+INSERT INTO `tarjeta_credito` (`id`, `num_tarjeta`, `CCV`, `fecha_caducidad`, `tipo_tarjeta`,`id_cliente`) VALUES (25, '5354414830957827', 472, '1970-01-26', 'MasterCard','5');
+INSERT INTO `tarjeta_credito` (`id`, `num_tarjeta`, `CCV`, `fecha_caducidad`, `tipo_tarjeta`,`id_cliente`) VALUES (26, '5391610742796190', 251, '1989-09-08', 'MasterCard','6');
+INSERT INTO `tarjeta_credito` (`id`, `num_tarjeta`, `CCV`, `fecha_caducidad`, `tipo_tarjeta`,`id_cliente`) VALUES (27, '5251858336553894', 98, '2000-01-16', 'Visa','7');
+INSERT INTO `tarjeta_credito` (`id`, `num_tarjeta`, `CCV`, `fecha_caducidad`, `tipo_tarjeta`,`id_cliente`) VALUES (28, '4485966525962590', 556, '1981-02-13', 'Visa','8');
+INSERT INTO `tarjeta_credito` (`id`, `num_tarjeta`, `CCV`, `fecha_caducidad`, `tipo_tarjeta`,`id_cliente`) VALUES (29, '5118862944321225', 158, '2003-02-12', 'Visa','9');
+INSERT INTO `tarjeta_credito` (`id`, `num_tarjeta`, `CCV`, `fecha_caducidad`, `tipo_tarjeta`,`id_cliente`) VALUES (30, '4556044694971', 220, '2001-11-01', 'Visa','10');
+INSERT INTO `tarjeta_credito` (`id`, `num_tarjeta`, `CCV`, `fecha_caducidad`, `tipo_tarjeta`,`id_cliente`) VALUES (31, '5580132717106603', 296, '1979-06-18', 'Visa','11');
+INSERT INTO `tarjeta_credito` (`id`, `num_tarjeta`, `CCV`, `fecha_caducidad`, `tipo_tarjeta`,`id_cliente`) VALUES (32, '341470234115928', 438, '2017-09-06', 'MasterCard','12');
+INSERT INTO `tarjeta_credito` (`id`, `num_tarjeta`, `CCV`, `fecha_caducidad`, `tipo_tarjeta`,`id_cliente`) VALUES (33, '5201685492645159', 484, '2016-12-25', 'MasterCard','13');
+INSERT INTO `tarjeta_credito` (`id`, `num_tarjeta`, `CCV`, `fecha_caducidad`, `tipo_tarjeta`,`id_cliente`) VALUES (34, '4024007101320992', 915, '1978-04-06', 'Visa','14');
 
 
 update cliente
