@@ -42,7 +42,7 @@ DELIMITER ;
 
 DROP FUNCTION IF EXISTS totalProducto;
 DELIMITER //
-CREATE FUNCTION totalProducto(id_producto)
+CREATE FUNCTION totalProducto(id_producto INT)
 RETURNS FLOAT DETERMINISTIC
 BEGIN
 END //
