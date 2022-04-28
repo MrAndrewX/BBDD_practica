@@ -2,6 +2,10 @@ DROP DATABASE IF EXISTS limbo;
 CREATE DATABASE limbo;
 USE limbo;
 
+DROP DATABASE IF EXISTS limbo;
+CREATE DATABASE limbo;
+USE limbo;
+
 CREATE TABLE cliente(
     id INT AUTO_INCREMENT PRIMARY KEY,
     nombre VARCHAR(20) NOT NULL,
@@ -54,6 +58,8 @@ CREATE TABLE tarjeta_credito(
     CCV INT NOT NULL,
     fecha_caducidad DATE NOT NULL,
     tipo_tarjeta VARCHAR(20),
+    id_cliente INT,
+    FOREIGN KEY (id_cliente) REFERENCES cliente(id),
     CHECK (tipo_tarjeta = "Visa" OR tipo_tarjeta = "Mastercard")
 );
 
@@ -63,10 +69,10 @@ CREATE TABLE compra(
     total FLOAT DEFAULT 0,
     cliente INT,
     direccion INT,
-    tarjeta INT, 
+    tarjeta INT,
     FOREIGN KEY (cliente) REFERENCES cliente(id),
-    FOREIGN KEY (direccion) REFERENCES direccion(id),
-    FOREIGN KEY (tarjeta) REFERENCES tarjeta_credito(id)
+    FOREIGN KEY (tarjeta) REFERENCES tarjeta_credito(id),
+    FOREIGN KEY (direccion) REFERENCES direccion(id)
 );
 CREATE TABLE producto(
     codigo INT AUTO_INCREMENT PRIMARY KEY,
@@ -79,15 +85,12 @@ CREATE TABLE producto(
     CHECK (IVA = 4 OR IVA = 10 OR IVA = 21)
 );
 
-
-
-
 CREATE TABLE compra_producto(
     id INT AUTO_INCREMENT PRIMARY KEY,
     id_compra INT,
     id_producto INT,
     cantidad INT,
-    precio_producto FLOAT,
+    precio_producto FLOAT DEFAULT 0,
     FOREIGN KEY (id_compra) REFERENCES compra(id),
     FOREIGN KEY (id_producto) REFERENCES producto(codigo)
 );
