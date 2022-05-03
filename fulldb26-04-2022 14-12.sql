@@ -304,3 +304,15 @@ INSERT INTO `compra_producto` (`id_compra`, `id_producto`, `cantidad`) VALUES ('
 
 INSERT INTO `compra` (`fecha`, `cliente`, `direccion`, `tarjeta`) VALUES ('2012-01-11','20','20','23');
 INSERT INTO `compra_producto` (`id_compra`, `id_producto`, `cantidad`) VALUES ('20','19','4');
+
+INSERT INTO `cliente_direccion` (`id_cliente`, `id_direccion`) VALUES ('1','1');
+INSERT INTO `cliente_direccion` (`id_cliente`, `id_direccion`) VALUES ('2','2');
+INSERT INTO `cliente_direccion` (`id_cliente`, `id_direccion`) VALUES ('3','3');
+INSERT INTO `cliente_direccion` (`id_cliente`, `id_direccion`) VALUES ('4','4');
+INSERT INTO `cliente_direccion` (`id_cliente`, `id_direccion`) VALUES ('5','5');
+INSERT INTO `cliente_direccion` (`id_cliente`, `id_direccion`) VALUES ('6','6');
+INSERT INTO `cliente_direccion` (`id_cliente`, `id_direccion`) VALUES ('7','7');
+INSERT INTO `cliente_direccion` (`id_cliente`, `id_direccion`) VALUES ('8','8');
+INSERT INTO `cliente_direccion` (`id_cliente`, `id_direccion`) VALUES ('9','9');
+INSERT INTO `cliente_direccion` (`id_cliente`, `id_direccion`) VALUES ('10','10');
+INSERT INTO `cliente_direccion` (`id_cliente`, `id_direccion`) VALUES ('11','11');
