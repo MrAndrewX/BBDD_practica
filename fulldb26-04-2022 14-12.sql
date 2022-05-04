@@ -323,7 +323,7 @@ INSERT INTO `descuento`(`fecha`, `descuento`) VALUES ('1997-08-30','50');
 INSERT INTO `descuento`(`fecha`, `descuento`) VALUES ('2015-07-02','15');
 INSERT INTO `descuento`(`fecha`, `descuento`) VALUES ('2021-10-22','14');
 INSERT INTO `descuento`(`fecha`, `descuento`) VALUES ('2001-01-01','1');
-INSERT INTO `descuento`(`fecha`, `descuento`) VALUES ('1999-31-31','80');
+INSERT INTO `descuento`(`fecha`, `descuento`) VALUES ('1999-12-31','80');
 INSERT INTO `descuento`(`fecha`, `descuento`) VALUES ('2017-06-11','40');
 INSERT INTO `descuento`(`fecha`, `descuento`) VALUES ('2008-03-18','32');
 INSERT INTO `descuento`(`fecha`, `descuento`) VALUES ('2005-02-16','17');
@@ -359,14 +359,14 @@ INSERT INTO `descuento_producto`(`id_descuento`, `id_producto`) VALUES ('9','102
 
 -- Mr perfecto y Ms adecuada para probar los triggers de descuento
 
-INSERT INTO `cliente` (`nombre`, `usuario`, `correo`) VALUES ('Descuentable','KieroDsqento','Ilovecapitalismo@gastar.todo');
-INSERT INTO `cliente` (`nombre`, `usuario`, `correo`) VALUES ('Rebajada','Pagar-','PrecioEntero@nunca.mas');
+INSERT INTO `cliente` (`nombre`, `usuario`, `correo`, `contraseña`) VALUES ('Descuentable','KieroDsqento','Ilovecapitalismo@gastar.todo', 'multipass');
+INSERT INTO `cliente` (`nombre`, `usuario`, `correo`, `contraseña`) VALUES ('Rebajada','Pagar-','PrecioEntero@nunca.mas', 'weakling');
 
-INSERT INTO `compra` (`fecha`,`cliente`, `direccion`, `tarjeta`) VALUES ('2007-03-25','21','1','4');
-INSERT INTO `compra` (`fecha`,`cliente`, `direccion`, `tarjeta`) VALUES ('2009-09-21','22','1','6');
+INSERT INTO `compra` (`fecha`,`cliente`, `direccion`, `tarjeta`) VALUES ('2007-03-25','21','1','24');
+INSERT INTO `compra` (`fecha`,`cliente`, `direccion`, `tarjeta`) VALUES ('2009-09-21','22','1','26');
 
-INSERT INTO `descuento_cliente` (`id_descuento`, `id_producto`) VALUES ('1','21');
-INSERT INTO `descuento_cliente` (`id_descuento`, `id_producto`) VALUES ('5','22');
+INSERT INTO `descuento_cliente` (`id_descuento`, `id_cliente`) VALUES ('1','21');
+INSERT INTO `descuento_cliente` (`id_descuento`, `id_cliente`) VALUES ('5','22');
 
 INSERT INTO `compra_producto` (`id_compra`, `id_producto`, `cantidad`) VALUES ('21','15','1');
 INSERT INTO `compra_producto` (`id_compra`, `id_producto`, `cantidad`) VALUES ('22','51','3');
