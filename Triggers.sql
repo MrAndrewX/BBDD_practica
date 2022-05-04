@@ -40,11 +40,78 @@ END //
 
 DELIMITER ;
 
-DROP FUNCTION IF EXISTS totalProducto;
+DROP PROCEDURE IF EXISTS calculoValorfinal;
 DELIMITER //
-CREATE FUNCTION totalProducto(id_producto INT)
-RETURNS FLOAT DETERMINISTIC
+CREATE PROCEDURE totalProducto(IN id_producto INT)
 BEGIN
+
+    DECLARE fin TINYINT DEFAULT 0;
+    DECLARE pvpAux FLOAT;
+    DECLARE ivaAux FLOAT;
+
+    DECLARE precioFinal 
+        CURSOR FOR
+            SELECT PVP, IVA FROM producto
+            WHERE codigo = id_producto;
+
+    DECLARE CONTINUE HANDLER
+        FOR NOT FOUND SET fin = 1;
+
+    OPEN precioFinal;
+
+        reader: LOOP
+
+            FETCH precioFinal INTO pvpAux, ivaAux;
+
+            IF fin = 1 THEN
+                leave READER;
+            END IF;
+
+            SET precio_producto = (ivaAux / 100 + 1) * pvpAux;
+
+        END LOOP;
+
+    CLOSE precioFinal;
+
 END //
 
 DELIMITER ;
+
+
+DROP PROCEDURE IF EXISTS aplicarDescuento;
+DELIMITER //
+CREATE PROCEDURE aplicarDescuento(
+    IN id_prod INT
+    )
+BEGIN
+
+    DECLARE valorDescuento FLOAT;
+    DECLARE valorProducto FLOAT;
+    DECLARE fechaDescuento DATE;
+    DECLARE fechaCompra DATE;
+
+    SELECT descuento 
+    INTO valorDescuento
+    FROM descuento 
+    WHERE id = (SELECT id_descuento FROM descuento_producto WHERE id_producto = id_prod);
+
+    SELECT fecha 
+    INTO fechaDescuento
+    FROM descuento 
+    WHERE id = (SELECT id_descuento FROM descuento_producto WHERE id_producto = id_prod);
+
+    SELECT precio_producto
+    INTO valorProducto
+    FROM compra_producto
+    WHERE id_producto = id_prod;
+
+    SELECT fecha
+    INTO fechaCompra
+    FROM compra
+    WHERE id = (SELECT id_compra FROM compra_producto WHERE id_producto = id_prod);
+
+    IF fechaDescuento == fechaCompra THEN
+        SET precio_producto = valorProducto * (1 + (valorDescuento/100));
+    END IF;
+
+END //
