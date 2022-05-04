@@ -1,4 +1,3 @@
-
 USE limbo;
 
 INSERT INTO `ciudad` (`codigo`, `nombre`, `provincia`) VALUES (1, 'Abagailmouth', 'Missouri');
@@ -217,9 +216,6 @@ INSERT INTO `tarjeta_credito` (`id`, `num_tarjeta`, `CCV`, `fecha_caducidad`, `t
 INSERT INTO `tarjeta_credito` (`id`, `num_tarjeta`, `CCV`, `fecha_caducidad`, `tipo_tarjeta`,`id_cliente`) VALUES (34, '4024007101320992', 915, '1978-04-06', 'Visa','14');
 
 
-update cliente
-SET contraseña = sha1(usuario);
-
 INSERT INTO `compra` (`fecha`, `cliente`, `direccion`, `tarjeta`) VALUES ('1978-04-06','1','1','21');
 INSERT INTO `compra_producto` (`id_compra`, `id_producto`, `cantidad`) VALUES ('1','1','3');
 
@@ -316,3 +312,67 @@ INSERT INTO `cliente_direccion` (`id_cliente`, `id_direccion`) VALUES ('8','8');
 INSERT INTO `cliente_direccion` (`id_cliente`, `id_direccion`) VALUES ('9','9');
 INSERT INTO `cliente_direccion` (`id_cliente`, `id_direccion`) VALUES ('10','10');
 INSERT INTO `cliente_direccion` (`id_cliente`, `id_direccion`) VALUES ('11','11');
+
+
+INSERT INTO `descuento`(`fecha`, `descuento`) VALUES ('2007-03-25','8');
+INSERT INTO `descuento`(`fecha`, `descuento`) VALUES ('2013-04-16','10');
+INSERT INTO `descuento`(`fecha`, `descuento`) VALUES ('2013-08-17','12');
+INSERT INTO `descuento`(`fecha`, `descuento`) VALUES ('2020-05-11','4');
+INSERT INTO `descuento`(`fecha`, `descuento`) VALUES ('2009-09-21','6');
+INSERT INTO `descuento`(`fecha`, `descuento`) VALUES ('1997-08-30','50');
+INSERT INTO `descuento`(`fecha`, `descuento`) VALUES ('2015-07-02','15');
+INSERT INTO `descuento`(`fecha`, `descuento`) VALUES ('2021-10-22','14');
+INSERT INTO `descuento`(`fecha`, `descuento`) VALUES ('2001-01-01','1');
+INSERT INTO `descuento`(`fecha`, `descuento`) VALUES ('1999-31-31','80');
+INSERT INTO `descuento`(`fecha`, `descuento`) VALUES ('2017-06-11','40');
+INSERT INTO `descuento`(`fecha`, `descuento`) VALUES ('2008-03-18','32');
+INSERT INTO `descuento`(`fecha`, `descuento`) VALUES ('2005-02-16','17');
+INSERT INTO `descuento`(`fecha`, `descuento`) VALUES ('2010-10-10','10');
+INSERT INTO `descuento`(`fecha`, `descuento`) VALUES ('2005-02-28','60');
+INSERT INTO `descuento`(`fecha`, `descuento`) VALUES ('2008-07-15','30');
+INSERT INTO `descuento`(`fecha`, `descuento`) VALUES ('2004-11-18','26');
+INSERT INTO `descuento`(`fecha`, `descuento`) VALUES ('2009-12-08','42');
+INSERT INTO `descuento`(`fecha`, `descuento`) VALUES ('2011-08-21','90');
+INSERT INTO `descuento`(`fecha`, `descuento`) VALUES ('2018-01-30','59');
+
+INSERT INTO `descuento_cliente` (`id_descuento`, `id_cliente`) VALUES ('1','3');
+INSERT INTO `descuento_cliente` (`id_descuento`, `id_cliente`) VALUES ('4','2');
+INSERT INTO `descuento_cliente` (`id_descuento`, `id_cliente`) VALUES ('6','7');
+INSERT INTO `descuento_cliente` (`id_descuento`, `id_cliente`) VALUES ('2','2');
+INSERT INTO `descuento_cliente` (`id_descuento`, `id_cliente`) VALUES ('4','10');
+INSERT INTO `descuento_cliente` (`id_descuento`, `id_cliente`) VALUES ('16','5');
+INSERT INTO `descuento_cliente` (`id_descuento`, `id_cliente`) VALUES ('10','15');
+INSERT INTO `descuento_cliente` (`id_descuento`, `id_cliente`) VALUES ('11','19');
+INSERT INTO `descuento_cliente` (`id_descuento`, `id_cliente`) VALUES ('8','12');
+INSERT INTO `descuento_cliente` (`id_descuento`, `id_cliente`) VALUES ('9','18');
+
+INSERT INTO `descuento_producto`(`id_descuento`, `id_producto`) VALUES ('1','15');
+INSERT INTO `descuento_producto`(`id_descuento`, `id_producto`) VALUES ('4','28');
+INSERT INTO `descuento_producto`(`id_descuento`, `id_producto`) VALUES ('6','34');
+INSERT INTO `descuento_producto`(`id_descuento`, `id_producto`) VALUES ('2','46');
+INSERT INTO `descuento_producto`(`id_descuento`, `id_producto`) VALUES ('4','51');
+INSERT INTO `descuento_producto`(`id_descuento`, `id_producto`) VALUES ('16','66');
+INSERT INTO `descuento_producto`(`id_descuento`, `id_producto`) VALUES ('10','70');
+INSERT INTO `descuento_producto`(`id_descuento`, `id_producto`) VALUES ('11','83');
+INSERT INTO `descuento_producto`(`id_descuento`, `id_producto`) VALUES ('8','91');
+INSERT INTO `descuento_producto`(`id_descuento`, `id_producto`) VALUES ('9','102');
+
+-- Mr perfecto y Ms adecuada para probar los triggers de descuento
+
+INSERT INTO `cliente` (`nombre`, `usuario`, `correo`) VALUES ('Descuentable','KieroDsqento','Ilovecapitalismo@gastar.todo');
+INSERT INTO `cliente` (`nombre`, `usuario`, `correo`) VALUES ('Rebajada','Pagar-','PrecioEntero@nunca.mas');
+
+INSERT INTO `compra` (`fecha`,`cliente`, `direccion`, `tarjeta`) VALUES ('2007-03-25','21','1','4');
+INSERT INTO `compra` (`fecha`,`cliente`, `direccion`, `tarjeta`) VALUES ('2009-09-21','22','1','6');
+
+INSERT INTO `descuento_cliente` (`id_descuento`, `id_producto`) VALUES ('1','21');
+INSERT INTO `descuento_cliente` (`id_descuento`, `id_producto`) VALUES ('5','22');
+
+INSERT INTO `compra_producto` (`id_compra`, `id_producto`, `cantidad`) VALUES ('21','15','1');
+INSERT INTO `compra_producto` (`id_compra`, `id_producto`, `cantidad`) VALUES ('22','51','3');
+INSERT INTO `compra_producto` (`id_compra`, `id_producto`, `cantidad`) VALUES ('22','54','1');
+
+
+update cliente
+SET contraseña = sha1(usuario);
+
