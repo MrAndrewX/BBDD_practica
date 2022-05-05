@@ -115,3 +115,19 @@ BEGIN
     END IF;
 
 END //
+delimiter ;
+--Ejercicio 7.2
+
+DROP TRIGGER IF EXISTS trigger_guardar_cambios_tarjeta-.cx    ;
+DELIMITER //
+CREATE TRIGGER trigger_guardar_alumnos_eliminados
+AFTER UPDATE ON tarjeta_credito
+FOR EACH ROW
+BEGIN    
+
+    
+    INSERT INTO 
+    historial_tarjeta_credito(id_tarjeta,fecha_hora,old_num,new_num,old_ccv,new_ccv,old_caducidad,new_caducidad,old_tipo,new_tipo)
+    VALUES (new.id,NOW(),old.num_tarjeta,new.num_tarjeta,old.CCV,new.CCV,old.fecha_caducidad,new.fecha_caducidad,old.tipo_tarjeta,new.tipo_tarjeta);
+
+END//
