@@ -117,10 +117,9 @@ BEGIN
 END //
 delimiter ;
 --Ejercicio 7.2
-
-DROP TRIGGER IF EXISTS trigger_guardar_cambios_tarjeta-.cx    ;
+DROP TRIGGER IF EXISTS trigger_guardar_cambios_tarjeta;
 DELIMITER //
-CREATE TRIGGER trigger_guardar_alumnos_eliminados
+CREATE TRIGGER trigger_guardar_cambios_tarjeta
 AFTER UPDATE ON tarjeta_credito
 FOR EACH ROW
 BEGIN    
