@@ -124,9 +124,9 @@ BEGIN
 
 END //
 --Ejercicio 7.2
-
+DELIMITER ;
 DROP TRIGGER IF EXISTS trigger_guardar_cambios_tarjeta;
-DELIMITER //
+DELIMITER ;
 CREATE TRIGGER trigger_guardar_cambios_tarjeta
 AFTER UPDATE ON tarjeta_credito
 FOR EACH ROW
