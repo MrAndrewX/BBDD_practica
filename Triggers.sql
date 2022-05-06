@@ -40,14 +40,16 @@ END //
 
 DELIMITER ;
 
-DROP PROCEDURE IF EXISTS calculoValorfinal;
+DROP FUNCTION IF EXISTS calculoValorfinal;
 DELIMITER //
-CREATE PROCEDURE totalProducto(IN id_producto INT)
+CREATE FUNCTION calculoValorfinal(id_producto INT)
+RETURNS FLOAT DETERMINISTIC
 BEGIN
 
     DECLARE fin TINYINT DEFAULT 0;
     DECLARE pvpAux FLOAT;
     DECLARE ivaAux FLOAT;
+    DECLARE resultado FLOAT;
 
     DECLARE precioFinal 
         CURSOR FOR
@@ -67,28 +69,30 @@ BEGIN
                 leave READER;
             END IF;
 
-            SET precio_producto = (ivaAux / 100 + 1) * pvpAux;
+            SET resultado = (ivaAux / 100 + 1) * pvpAux;
 
         END LOOP;
 
     CLOSE precioFinal;
+
+    RETURN(resultado);
 
 END //
 
 DELIMITER ;
 
 
-DROP PROCEDURE IF EXISTS aplicarDescuento;
+DROP FUNCTION IF EXISTS aplicarDescuento;
 DELIMITER //
-CREATE PROCEDURE aplicarDescuento(
-    IN id_prod INT
-    )
+CREATE FUNCTION aplicarDescuento(id_prod INT)
+RETURNS FLOAT DETERMINISTIC
 BEGIN
 
     DECLARE valorDescuento FLOAT;
     DECLARE valorProducto FLOAT;
     DECLARE fechaDescuento DATE;
     DECLARE fechaCompra DATE;
+    DECLARE resultado FLOAT;
 
     SELECT descuento 
     INTO valorDescuento
@@ -110,23 +114,12 @@ BEGIN
     FROM compra
     WHERE id = (SELECT id_compra FROM compra_producto WHERE id_producto = id_prod);
 
-    IF fechaDescuento == fechaCompra THEN
-        SET precio_producto = valorProducto * (1 + (valorDescuento/100));
+    SET resultado = valorProducto;
+
+    IF fechaDescuento = fechaCompra THEN
+        SET resultado = valorProducto * (1 + (valorDescuento/100));
     END IF;
 
+    RETURN(resultado);
+
 END //
-delimiter ;
---Ejercicio 7.2
-DROP TRIGGER IF EXISTS trigger_guardar_cambios_tarjeta;
-DELIMITER //
-CREATE TRIGGER trigger_guardar_cambios_tarjeta
-AFTER UPDATE ON tarjeta_credito
-FOR EACH ROW
-BEGIN    
-
-    
-    INSERT INTO 
-    historial_tarjeta_credito(id_tarjeta,fecha_hora,old_num,new_num,old_ccv,new_ccv,old_caducidad,new_caducidad,old_tipo,new_tipo)
-    VALUES (new.id,NOW(),old.num_tarjeta,new.num_tarjeta,old.CCV,new.CCV,old.fecha_caducidad,new.fecha_caducidad,old.tipo_tarjeta,new.tipo_tarjeta);
-
-END//
