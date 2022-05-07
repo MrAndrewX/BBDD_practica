@@ -40,9 +40,9 @@ END //
 
 DELIMITER ;
 
-DROP FUNCTION IF EXISTS calculoValorfinal;
+DROP FUNCTION IF EXISTS calculoValorFinal;
 DELIMITER //
-CREATE FUNCTION calculoValorfinal(id_producto INT)
+CREATE FUNCTION calculoValorFinal(id_producto INT)
 RETURNS FLOAT DETERMINISTIC
 BEGIN
 
@@ -124,8 +124,6 @@ BEGIN
 
 END //
 
-
-
 DELIMITER ;
 DROP TRIGGER IF EXISTS trigger_guardar_cambios_tarjeta;
 DELIMITER //
@@ -139,3 +137,14 @@ BEGIN
     VALUES (new.id,NOW(),old.num_tarjeta,new.num_tarjeta,old.CCV,new.CCV,old.fecha_caducidad,new.fecha_caducidad,old.tipo_tarjeta,new.tipo_tarjeta);
 
 END//
+
+DELIMITER ;
+
+DROP TRIGGER IF EXISTS trigger_actualizar_precio;
+CREATE TRIGGER trigger_actualizar_precio
+BEFORE INSERT 
+ON compra_producto
+FOR EACH ROW
+SET NEW.precio_producto = calculoValorFinal(NEW.id_producto);
+
+
