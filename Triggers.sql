@@ -214,7 +214,7 @@ BEGIN
     FROM cliente_direccion 
     WHERE id_cliente = NEW.id_cliente;
 
-    IF numeroDirecciones > 3 THEN
+    IF numeroDirecciones > 2 THEN
         SIGNAL SQLSTATE '45000'
           SET MESSAGE_TEXT = "Mismo cliente no puede tener más de 3 direcciones.";
     END IF;
