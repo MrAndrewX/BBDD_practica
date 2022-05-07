@@ -123,8 +123,10 @@ BEGIN
     RETURN(resultado);
 
 END //
---Ejercicio 7.2
 
+
+
+DELIMITER ;
 DROP TRIGGER IF EXISTS trigger_guardar_cambios_tarjeta;
 DELIMITER //
 CREATE TRIGGER trigger_guardar_cambios_tarjeta
@@ -137,4 +139,3 @@ BEGIN
     VALUES (new.id,NOW(),old.num_tarjeta,new.num_tarjeta,old.CCV,new.CCV,old.fecha_caducidad,new.fecha_caducidad,old.tipo_tarjeta,new.tipo_tarjeta);
 
 END//
-
