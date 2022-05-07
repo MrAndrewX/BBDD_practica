@@ -148,7 +148,11 @@ ON compra_producto
 FOR EACH ROW
 BEGIN
 
-    SET NEW.precio_producto = calculoValorFinal(NEW.id_producto);
+    DECLARE precio FLOAT;
+
+    SET precio = calculoValorFinal(NEW.id_producto) * NEW.cantidad;
+
+    SET NEW.precio_producto = precio;
 
 END//
 
