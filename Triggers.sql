@@ -197,3 +197,28 @@ BEGIN
 END //
 
 DELIMITER ;
+
+
+DROP TRIGGER IF EXISTS trigger_max_address_per_customer;
+DELIMITER //
+CREATE TRIGGER trigger_max_address_per_customer
+BEFORE INSERT
+ON cliente_direccion
+FOR EACH ROW
+BEGIN
+
+    DECLARE numeroDirecciones INT;
+
+    SELECT count(id_cliente) 
+    INTO numeroDirecciones
+    FROM cliente_direccion 
+    WHERE id_cliente = NEW.id_cliente;
+
+    IF numeroDirecciones > 3 THEN
+        SIGNAL SQLSTATE '45000'
+          SET MESSAGE_TEXT = "Mismo cliente no puede tener más de 3 direcciones.";
+    END IF;
+
+END//
+
+DELIMITER ;
