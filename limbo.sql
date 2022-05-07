@@ -116,6 +116,7 @@ CREATE TABLE descuento_producto(
     FOREIGN KEY (id_descuento) REFERENCES descuento(id),
     FOREIGN KEY (id_producto) REFERENCES producto(codigo)
 );
+
 CREATE TABLE historial_tarjeta_credito(
     id INT UNSIGNED NOT NULL AUTO_INCREMENT,
     id_tarjeta INT,
@@ -129,4 +130,12 @@ CREATE TABLE historial_tarjeta_credito(
     old_tipo varchar(90),
     new_tipo varchar(90),
     constraint id primary key (id)
+);
+
+CREATE TABLE ventas_mensuales(
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    mes INT NOT NULL,
+    id_producto INT,
+    cantidad INT,
+    total_venta FLOAT
 );
