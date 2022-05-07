@@ -112,12 +112,12 @@ BEGIN
     SELECT fecha
     INTO fechaCompra
     FROM compra
-    WHERE id = (SELECT id_compra FROM compra_producto WHERE id_producto = id_prod);
+    WHERE fecha = fechaDescuento;
 
     SET resultado = valorProducto;
 
     IF fechaDescuento = fechaCompra THEN
-        SET resultado = valorProducto * (1 + (valorDescuento/100));
+        SET resultado = valorProducto - (valorProducto * (valorDescuento/100));
     END IF;
 
     RETURN(resultado);
@@ -141,10 +141,55 @@ END//
 DELIMITER ;
 
 DROP TRIGGER IF EXISTS trigger_actualizar_precio;
+DELIMITER //
 CREATE TRIGGER trigger_actualizar_precio
 BEFORE INSERT 
 ON compra_producto
 FOR EACH ROW
-SET NEW.precio_producto = calculoValorFinal(NEW.id_producto);
+BEGIN
 
+    SET NEW.precio_producto = calculoValorFinal(NEW.id_producto);
 
+END//
+
+DELIMITER ;
+
+DROP FUNCTION IF EXISTS total_a_pagar;
+DELIMITER //
+CREATE FUNCTION total_a_pagar(id_comp INT)
+RETURNS FLOAT DETERMINISTIC
+BEGIN
+
+    DECLARE fin TINYINT DEFAULT 0;
+    DECLARE totalAux FLOAT DEFAULT 0;
+    DECLARE totalProducto FLOAT DEFAULT 0;
+    
+    DECLARE totalPago
+        CURSOR FOR 
+            SELECT precio_producto FROM compra_producto
+            WHERE id_compra = id_comp;
+
+    DECLARE CONTINUE HANDLER
+        FOR NOT FOUND SET fin = 1;
+
+    OPEN totalPago;
+
+        reader: LOOP
+
+            FETCH totalPago INTO totalProducto;
+
+            IF fin = 1 THEN
+                leave READER;
+            END IF;
+
+            SET totalAux = totalAux + totalProducto;
+
+        END LOOP;
+
+    CLOSE totalPago;
+
+    RETURN(totalAux);    
+
+END //
+
+DELIMITER ;
